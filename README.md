@@ -1,40 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Github Search Web App
 
-## Getting Started
+This repository contains the code for the Github Search Web App.
 
-First, run the development server:
+## Prerequisites
+
+Ensure you have the following tools installed on your environment:
+
+- NodeJs (v18.17.0)
+- Yarn (v1.22.19)
+
+## Local Development
+
+First, clone this repository to your local machine.
+
+1. Navigate to the project's directory:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd github-search
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install the required dependencies:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. IMPORTANT - CHANGE NEXT_PUBLIC_GITHUB_TOKEN ON THE .env FILE WITH A VALID GITHUB TOKEN:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```makefile
+NEXT_PUBLIC_GITHUB_TOKEN={YOUR_TOKEN_HERE}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Run the development server:
 
-## Learn More
+```bash
+yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Production Build and Start
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To deploy for production, follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Navigate to the project's directory:
 
-## Deploy on Vercel
+```bash
+cd github-search
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Install the required dependencies:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+yarn install
+```
+
+3. IMPORTANT - CHANGE NEXT_PUBLIC_GITHUB_TOKEN ON THE .env FILE WITH A VALID GITHUB TOKEN:
+
+```makefile
+NEXT_PUBLIC_GITHUB_TOKEN={YOUR_TOKEN_HERE}
+```
+
+4. Create a production build
+
+```bash
+yarn build
+```
+
+5. Start the production server:
+
+```bash
+yarn start
+```
+
+## Technologies Used
+
+This project was built using the following technologies:
+
+- Next.js
+- Zustand
+- TypeScript
+- Material UI
+- GraphQL
+
+## Additional Notes
+
+- To optimize performance, I opted for Zustand instead of the more traditional Redux/Redux Saga. Zustand is both simple and efficient, making it particularly suitable for smaller projects.
+
+- For debouncing functionalities, I've crafted two custom hooks. You can find them in the hooks directory. If I had been using Redux Saga, the takeLatest effect would have been my choice.
+
+- It's worth noting that I'm more accustomed to working with Tailwind CSS rather than Material UI. Therefore, there might be room for optimization with certain Material UI components.
+
+- In order to change the ranking order in favorites page, you can drag and drop the cards.
+
+Thank you for taking the time to review this project. I truly enjoyed building it.
